@@ -1,0 +1,26 @@
+.table-container {
+    text-align: center; /* Center align the table */
+  }
+  
+  .broker-table {
+    border-collapse: collapse;
+    margin: auto; /* Center the table */
+  }
+  
+  .broker-table th, .broker-table td {
+    border: 1px solid #ddd; /* Table borders */
+    padding: 8px;
+  }
+  
+  .broker-table th {
+    background-color: #f2f2f2; /* Background color for table headings */
+  }
+  
+  .broker-table td {
+    background-color: #fff; /* Background color for table content */
+  }
+  
+  .heading {
+    background-color: #ddd; /* Different background color for column headings */
+  }
+  

@@ -1,0 +1,24 @@
+.header{
+    background-color: aqua;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 4rem;
+
+}
+
+.image{
+    mix-blend-mode: multiply;
+}
+
+button{
+    height: 5rem;
+    width: 5rem;
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
