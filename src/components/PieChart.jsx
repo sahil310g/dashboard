@@ -1,18 +1,25 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
+import '../styles/PieChart.css';
 
-const PieChart = () => {
+const PieChart = ({ brokersData, value }) => {
   const chartRef = useRef(null);
   let myChart = null;
 
   useEffect(() => {
     const ctx = chartRef.current.getContext('2d');
 
+    // Extracting names and GWP values from the data array
+    const labels = brokersData.map(item => item.name);
+
+
+    const gwpValues = (value==="Planned") ?brokersData.map(item => item.plannedGWP):brokersData.map(item => item.actualGWP);
+    console.log(`GWP values: ${gwpValues}`);
     // Data for the pie chart
-    const data = {
-      labels: ['Value 1', 'Value 2', 'Value 3', 'Value 4', 'Value 5', 'Value 6', 'Value 7', 'Value 8', 'Value 9', 'Value 10'],
+    const chartData = {
+      labels: labels,
       datasets: [{
-        data: [1500000, 1200000, 1800000, 1400000, 1600000, 1300000, 1700000, 1900000, 1100000, 1700000],
+        data: gwpValues, // Values in lakhs
         backgroundColor: [
           'rgba(255, 99, 132, 0.7)',
           'rgba(54, 162, 235, 0.7)',
@@ -36,6 +43,12 @@ const PieChart = () => {
       plugins: {
         title: {
           display: true,
+          text: `${value} GWP Values for different Brokers`
+        },
+        legend: {
+          position: 'right', // Place legends to the right of the chart
+            align: 'center',
+            marginRight: '10px',
         }
       }
     };
@@ -48,14 +61,14 @@ const PieChart = () => {
     // Create the pie chart
     myChart = new Chart(ctx, {
       type: 'pie',
-      data: data,
+      data: chartData,
       options: options
     });
 
-  }, []);
+  }, [brokersData]);
 
   return (
-    <div>
+    <div className='PieChart'>
       <canvas ref={chartRef}></canvas>
     </div>
   );
