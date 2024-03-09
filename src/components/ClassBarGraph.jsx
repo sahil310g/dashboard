@@ -12,20 +12,21 @@ import {
 import '../styles/Graphs.css';
 
 
-const BarGraph = ({ brokersData }) => {
+const ClassBarGraph = ({ classData }) => {
   return (
     <div className="barGraph">
       <ResponsiveContainer width="100%" height={400}>
         <BarChart
-          data={brokersData}
+          data={classData}
           margin={{ top: 20, right: 30, left: 20, bottom: 10 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="Broker Name" />
+          <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="Planned GWP" fill="#82ca9d" name="Planned GWP" />
+          <Bar dataKey="Business Plan" fill="#82ca9d" name="Planned GWP" />
+          <Bar dataKey="Earned Premium" fill="red" name="Earned Premium" />
           <Bar dataKey="GWP" fill="#8884d8" name="GWP" />
         </BarChart>
       </ResponsiveContainer>
@@ -33,4 +34,4 @@ const BarGraph = ({ brokersData }) => {
   );
 };
 
-export default BarGraph;
+export default ClassBarGraph;

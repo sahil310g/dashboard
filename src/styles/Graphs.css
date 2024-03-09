@@ -1,0 +1,10 @@
+.PieChart{
+    margin: 3rem auto;
+    width: max-content;
+}
+.barGraph{
+    margin: 1rem 3rem;
+}
+.lineGraph{
+    margin: 1rem 3rem;
+}

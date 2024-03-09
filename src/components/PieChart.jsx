@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
-import '../styles/PieChart.css';
+import '../styles/Graphs.css';
 
 const PieChart = ({ brokersData, value }) => {
   const chartRef = useRef(null);
@@ -9,17 +9,13 @@ const PieChart = ({ brokersData, value }) => {
   useEffect(() => {
     const ctx = chartRef.current.getContext('2d');
 
-    // Extracting names and GWP values from the data array
-    const labels = brokersData.map(item => item.name);
+    const labels = brokersData.map(item => item["Broker Name"]);
+    const gwpValues = (value==="Planned") ?brokersData.map(item => item["Planned GWP"]):brokersData.map(item => item["GWP"]);
 
-
-    const gwpValues = (value==="Planned") ?brokersData.map(item => item.plannedGWP):brokersData.map(item => item.actualGWP);
-    console.log(`GWP values: ${gwpValues}`);
-    // Data for the pie chart
     const chartData = {
       labels: labels,
       datasets: [{
-        data: gwpValues, // Values in lakhs
+        data: gwpValues, 
         backgroundColor: [
           'rgba(255, 99, 132, 0.7)',
           'rgba(54, 162, 235, 0.7)',
@@ -46,19 +42,17 @@ const PieChart = ({ brokersData, value }) => {
           text: `${value} GWP Values for different Brokers`
         },
         legend: {
-          position: 'right', // Place legends to the right of the chart
+          position: 'right', 
             align: 'center',
             marginRight: '10px',
         }
       }
     };
 
-    // If a chart already exists, destroy it before creating a new one
-    if (myChart !== null) {
+    if (myChart) {
       myChart.destroy();
     }
-
-    // Create the pie chart
+    
     myChart = new Chart(ctx, {
       type: 'pie',
       data: chartData,

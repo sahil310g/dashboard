@@ -1,26 +1,27 @@
 .table-container {
-    text-align: center; /* Center align the table */
+    text-align: center;
+    margin: 1rem;
   }
   
   .broker-table {
     border-collapse: collapse;
-    margin: auto; /* Center the table */
+    margin: auto; 
   }
   
   .broker-table th, .broker-table td {
-    border: 1px solid #ddd; /* Table borders */
+    border: 1px solid #ddd; 
     padding: 8px;
   }
   
   .broker-table th {
-    background-color: #f2f2f2; /* Background color for table headings */
+    background-color: #f2f2f2;
   }
   
   .broker-table td {
-    background-color: #fff; /* Background color for table content */
+    background-color: #fff; 
   }
   
   .heading {
-    background-color: #ddd; /* Different background color for column headings */
+    background-color: #ddd; 
   }
   

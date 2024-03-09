@@ -1,3 +1,24 @@
 .pieCharts{
     display: flex;
 }
+
+select{
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 900;
+    border-radius: 5px;
+    height: 2rem;
+    width: 8rem;
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+.dropDownMenu{
+    margin: 0 3rem;
+}
+.menus{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
