@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import ChatButton from "../components/ChatButton";
 import ClassBarGraph from "../components/ClassBarGraph";
 import ClassLineGraph from "../components/ClassLineGraph";
 import ClassTable from "../components/ClassTable";
 import Data from "../database/Data.json";
 
-function Class() {
+function Class({ chatList, setChatList }) {
   const [business, setBusiness] = useState("All");
   const [type, setType] = useState("All");
   const [year, setYear] = useState("All");
@@ -16,7 +17,6 @@ function Class() {
     "PI",
   ]);
   const [filteredData, setFilteredData] = useState(Data["Class stats"]);
-
 
   useEffect(() => {
     var filtered = Data["Class stats"].filter(item => item.Year === +year);
@@ -32,8 +32,6 @@ function Class() {
     if (type!== "All") {
       filtered= filtered.filter(item => item.ClassType === type);
     }
-
-    console.log(filtered.slice(0,10));
     setFilteredData(filtered.slice(0,10));
   }, [year, business, type]);
 
@@ -95,8 +93,10 @@ function Class() {
         </div>
       </div>
       <ClassTable classData={filteredData} />
-      <ClassLineGraph classData={Data["Class stats"]} />
-      <ClassBarGraph classData={Data["Class stats"]} />
+      <ClassLineGraph classData={filteredData} />
+      <ClassBarGraph classData={filteredData} />
+      <ChatButton chatList={chatList} setChatList={setChatList}/>
+
     </div>
   );
 }

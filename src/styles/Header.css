@@ -13,7 +13,7 @@
     mix-blend-mode: multiply;
 }
 
-button{
+.buttons button{
     height: 5rem;
     width: 5rem;
     background-color: transparent;
