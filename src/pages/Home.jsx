@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from "../asstes/home_logo.webp"
+import logo from "../asstes/home_logo.png"
 import ChatButton from '../components/ChatButton';
 import "../styles/Home.css";
 
