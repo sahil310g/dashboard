@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReceivedTextBubble from "../components/ReceivedTextBubble";
 import SentTextBubble from "../components/SentTextBubble";
 

@@ -1,7 +1,7 @@
 .receivedTextBubble {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 100%;
     margin-bottom: 1rem;
   }
   
@@ -12,10 +12,9 @@
   
   .receivedTextBubble .message {
     display: flex;
-    width: 55%;
+    width: 70%;
     height: fit-content;
     padding: 1rem;
-    padding-right: 0;
     align-items: flex-start;
     border: 0.1rem solid #e9e9eb;
     background: #e9e9eb;

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import ChatBot from "../pages/ChatBot";
 import "../styles/ChatButton.css";
 import { OpenAI } from "openai";
 import Data from "../database/Data.json";
-import Robot from "../asstes/robot.gif";
+import Robot from "../asstes/chatbot.gif";
 
 const ChatButton = ({ chatList, setChatList }) => {
   const [showChatbox, setShowChatbox] = useState(false);
@@ -35,6 +35,9 @@ const ChatButton = ({ chatList, setChatList }) => {
         {
           role: "assistant",
           content: "You are an AI assistant",
+        },{
+          role: "user",
+          content: JSON.stringify(chatList),
         },
         {
           role: "user",
@@ -51,6 +54,16 @@ const ChatButton = ({ chatList, setChatList }) => {
       },
     ]);
   };
+  const chatContainerRef = useRef(null);
+  const scrollToBottom = () => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
+    }
+  };
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatList]);
 
   const handleSubmit = async () => {
     setSubmitText(text);
@@ -83,7 +96,7 @@ const ChatButton = ({ chatList, setChatList }) => {
               x
             </button>
           </div>
-          <div className="chatbox-body">
+          <div className="chatbox-body" ref={chatContainerRef}>
             <ChatBot chatList={chatList} />
           </div>
           <div className="chatbox-footer">

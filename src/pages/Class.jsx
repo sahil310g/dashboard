@@ -48,6 +48,7 @@ function Class({ chatList, setChatList }) {
     } else {
       setOptions2([]);
     }
+    setType("All");
   };
 
   return (

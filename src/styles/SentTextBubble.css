@@ -26,6 +26,7 @@
     padding-right: 0;
     align-items: flex-start;
     border: 0.1rem solid #2e9dfb;
+    color: white;
     background: #2e9dfb;
     border-radius: 20px;
     z-index: 1;
