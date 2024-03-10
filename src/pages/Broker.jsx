@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import BarGraph from "../components/BarGraph";
 import LineGraph from "../components/LineGraph";
-import PieChart from "../components/PieChart";
 import BrokerTable from "../components/BrokerTable";
 import "../styles/Broker.css";
 import Data from "../database/Data.json";
-import ChatBot from "./ChatBot";
 import ChatButton from "../components/ChatButton";
 
 function Broker({chatList, setChatList}) {
@@ -60,7 +58,6 @@ function Broker({chatList, setChatList}) {
         <LineGraph brokersData={filteredData} />
         <BarGraph brokersData={filteredData} />
       </div>
-      {/* <ChatBot chatbotOpen={chatbotOpen} setChatbotOpen={setChatbotOpen} chatList={chatList} setChatList={setChatList} /> */}
       <ChatButton chatList={chatList} setChatList={setChatList}/>
     </div>
   );

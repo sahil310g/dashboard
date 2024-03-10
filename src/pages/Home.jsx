@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
+import logo from "../asstes/home_logo.webp"
+import ChatButton from '../components/ChatButton';
+import "../styles/Home.css";
 
-function Home() {
+function Home({chatList, setChatList}) {
   return (
-    <div>Home</div>
+    <div className='home'>
+      <img className='home-img' src={logo} alt="" />
+      <ChatButton chatList={chatList} setChatList={setChatList}/>
+    </div>
   )
 }
 

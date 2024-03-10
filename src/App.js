@@ -10,33 +10,15 @@ import { useState } from 'react';
 function App() {
   const [chatList, setChatList] = useState([
     {
-      "role":"AI",
-      "message":"Hello, how can I help you?"
-  //   },{
-  //   "role":"user",
-  //   "message":"Hello, how can I help you?"
-  // },{
-  //   "role":"user",
-  //   "message":"Hello, how can I help you?"
-  // },{
-  //   "role":"user",
-  //   "message":"Hello, how can I help you?"
-  // },{
-  //   "role":"user",
-  //   "message":"Hello, how can I help you?"
-  // },{
-  //   "role":"user",
-  //   "message":"Hello, how can I help you?"
-  // },{
-  //   "role":"AI",
-  //   "message":"Hello, how can I help you?"
-  }]);
+      "role": "AI",
+      "message": "Hello, how can I help you?"
+    }]);
   return (
     <div className="App">
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home chatList={chatList} setChatList={setChatList} />} />
           <Route path="/broker" element={<Broker chatList={chatList} setChatList={setChatList} />} />
           <Route path="/class" element={<Class chatList={chatList} setChatList={setChatList} />} />
         </Routes>

@@ -14,6 +14,7 @@ const BrokerTable = ({ brokersData }) => {
             <th className="heading">GWP</th>
             <th className="heading">Planned GWP</th>
             <th className="heading">Market Type</th>
+            <th className="heading">GWP % Difference</th>
           </tr>
         </thead>
         <tbody>
@@ -25,6 +26,7 @@ const BrokerTable = ({ brokersData }) => {
               <td>{broker.GWP}</td>
               <td>{broker["Planned GWP"]}</td>
               <td>{broker["Market Type"]}</td>
+              <td>{((broker.GWP - broker["Planned GWP"]) / broker["Planned GWP"] * 100).toFixed(2)}%</td>
             </tr>
           ))}
         </tbody>

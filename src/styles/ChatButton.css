@@ -1,87 +1,144 @@
-.chat-button-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-  }
-  
-  .chat-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .chatbox-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .chatbox {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    height: 50%;
-    width: 50%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    max-width: 80%;
-    overflow: auto;
-  }
-  
-  .chatbox-header {
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    z-index: 1;
-  }
-  
-  .close-btn {
-    background-color: #dc3545;
-    color: #fff;
-    border-radius: 100%;
-    padding: 0;
-    cursor: pointer;
-    height: 1.4rem;
-    width: 1.4rem;
-    border: none;
-  }
-  
-  .chatbox-content {
-    padding: 10px;
-  }
-  
-  .text-area input[type="text"] {
-    width: 46%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    position: absolute;
-    bottom: 25%;
-    z-index: 2;
-  }
-  .text-area{
-    display: flex;
-  }
-  .text-area button {
-    border: none;
-    background: transparent;
-    font-size: 1.5rem;
-    font-weight: 600;
-    z-index: 5;
-    position: absolute;
-    right: 25%;
-    bottom: 25%;
-    color: var(--primary-color);
-  }
+.chatBot {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  width: 15rem;
+  height: 15rem;
+}
+
+.chatBot img {
+  width: 100%;
+  height: 100%;
+}
+
+.chatbox {
+  position: fixed;
+  bottom: 10rem;
+  right: 10rem;
+  z-index: 1000;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(5px); /* Add this line */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  height: 50%;
+  width: 50%;
+  max-width: 80%;
+}
+
+.chatbox-body {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  color: #333;
+}
+
+.chatbox-footer {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbox-footer input {
+  width: 100%;
+  height: 100%;
+  border-bottom-left-radius: 10px;
+  background-color: #dde6ed;
+  padding: 0 1rem;
+  border: none;
+  font-size: medium;
+}
+.chatbox-footer input:focus {
+  outline: none;
+}
+
+.chatbox-footer button:hover {
+  background-color: #405669;
+}
+
+.chat-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.chatbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.chatbox-header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  z-index: 1;
+}
+
+.close-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border-radius: 100%;
+  padding: 0;
+  cursor: pointer;
+  height: 1.4rem;
+  width: 1.4rem;
+  border: none;
+}
+
+.chatbox-content {
+  padding: 10px;
+}
+
+.text-area input[type="text"] {
+  width: 46%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 25%;
+  z-index: 2;
+}
+.text-area {
+  display: flex;
+}
+.text-area button {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  font-weight: 600;
+  z-index: 5;
+  position: absolute;
+  right: 25%;
+  bottom: 25%;
+  color: var(--primary-color);
+}

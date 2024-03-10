@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import ChatBot from "../pages/ChatBot";
 import "../styles/ChatButton.css";
-import { Configuration, OpenAI } from "openai";
+import { OpenAI } from "openai";
 import Data from "../database/Data.json";
+import Robot from "../asstes/robot.gif";
 
 const ChatButton = ({ chatList, setChatList }) => {
   const [showChatbox, setShowChatbox] = useState(false);
@@ -72,31 +73,31 @@ const ChatButton = ({ chatList, setChatList }) => {
 
   return (
     <div className="chat-button-container">
-      <button className="chat-button" onClick={toggleChatbox}>
-        Open Chat
-      </button>
+      <div className="chatBot">
+        <img onClick={toggleChatbox} src={Robot} alt="Robot" />
+      </div>
       {showChatbox && (
-        <div className="chatbox-overlay">
-          <div className="chatbox">
-            <div className="chatbox-header">
-              <button className="close-btn" onClick={toggleChatbox}>
-                x
-              </button>
-            </div>
-            <div className="chatbox-content">
-              <ChatBot chatList={chatList} />
-            </div>
-            <div className="text-area">
-              <input
-                type="text"
-                value={text}
-                placeholder="Type your message..."
-                onChange={(e) => {
-                  setText(e.target.value);
-                }}
-              />
-              <button onClick={handleSubmit}>➤</button>
-            </div>
+        <div className="chatbox">
+          <div className="chatbox-header">
+            <button className="close-btn" onClick={toggleChatbox}>
+              x
+            </button>
+          </div>
+          <div className="chatbox-body">
+            <ChatBot chatList={chatList} />
+          </div>
+          <div className="chatbox-footer">
+            <input
+              type="text"
+              value={text}
+              placeholder="Type your message..."
+              onChange={(e) => {
+                setText(e.target.value);
+              }}
+            />
+            <button onClick={handleSubmit} className="chat-button">
+              ➤
+            </button>
           </div>
         </div>
       )}

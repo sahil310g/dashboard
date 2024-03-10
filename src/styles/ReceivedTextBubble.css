@@ -23,6 +23,7 @@
     z-index: 1;
     left: -2rem;
     position: relative;
+    text-align: left;
   }
   
   .receivedTextBubble .stroke {
