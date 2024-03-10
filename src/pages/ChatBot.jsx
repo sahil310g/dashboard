@@ -2,18 +2,7 @@ import React, { useState } from "react";
 import ReceivedTextBubble from "../components/ReceivedTextBubble";
 import SentTextBubble from "../components/SentTextBubble";
 
-function ChatBot({ chatbotOpen, setChatbotOpen, chatList, setChatList }) {
-  const toggleChatbot = () => {
-    setChatbotOpen((prevState) => !prevState);
-  };
-
-  const [text, setText] = useState("");
-  const [submitText, setSubmitText] = useState("");
-
-  const handleSubmit = () => {
-    setSubmitText(text);
-    setText("");
-  };
+function ChatBot({ chatList }) {
 
   return (
     <div className="popup">

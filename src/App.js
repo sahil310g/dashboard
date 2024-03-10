@@ -12,24 +12,24 @@ function App() {
     {
       "role":"AI",
       "message":"Hello, how can I help you?"
-    },{
-    "role":"user",
-    "message":"Hello, how can I help you?"
-  },{
-    "role":"user",
-    "message":"Hello, how can I help you?"
-  },{
-    "role":"user",
-    "message":"Hello, how can I help you?"
-  },{
-    "role":"user",
-    "message":"Hello, how can I help you?"
-  },{
-    "role":"user",
-    "message":"Hello, how can I help you?"
-  },{
-    "role":"AI",
-    "message":"Hello, how can I help you?"
+  //   },{
+  //   "role":"user",
+  //   "message":"Hello, how can I help you?"
+  // },{
+  //   "role":"user",
+  //   "message":"Hello, how can I help you?"
+  // },{
+  //   "role":"user",
+  //   "message":"Hello, how can I help you?"
+  // },{
+  //   "role":"user",
+  //   "message":"Hello, how can I help you?"
+  // },{
+  //   "role":"user",
+  //   "message":"Hello, how can I help you?"
+  // },{
+  //   "role":"AI",
+  //   "message":"Hello, how can I help you?"
   }]);
   return (
     <div className="App">

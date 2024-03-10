@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import ChatBot from "../pages/ChatBot";
 import "../styles/ChatButton.css";
+import { Configuration, OpenAI } from "openai";
+import Data from "../database/Data.json";
 
 const ChatButton = ({ chatList, setChatList }) => {
   const [showChatbox, setShowChatbox] = useState(false);
@@ -12,23 +14,61 @@ const ChatButton = ({ chatList, setChatList }) => {
     setShowChatbox((prevState) => !prevState);
   };
 
-  const handleSubmit = () => {
+  const openai = new OpenAI({
+    apiKey: process.env.REACT_APP_OPENAI_KEY,
+    dangerouslyAllowBrowser: true,
+  });
+
+  const generateResponse = async () => {
+    const chatCompletion = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content: "You are an AI assistant",
+        },
+        {
+          role: "user",
+          content: JSON.stringify(Data),
+        },
+        {
+          role: "assistant",
+          content: "You are an AI assistant",
+        },
+        {
+          role: "user",
+          content: `Based on the dataset provided above just give me answer, ${submitText}`,
+        },
+      ],
+    });
+    const response = chatCompletion.choices[0].message.content;
+    setChatList((prevState) => [
+      ...prevState,
+      {
+        role: "AI",
+        message: response,
+      },
+    ]);
+  };
+
+  const handleSubmit = async () => {
     setSubmitText(text);
     setText("");
   };
 
-  useEffect(()=>{
-    if(submitText!==""){
+  useEffect(() => {
+    if (submitText !== "") {
       setChatList((prevState) => [
-     ...prevState,
+        ...prevState,
         {
           role: "user",
           message: submitText,
         },
       ]);
+      generateResponse();
       setSubmitText("");
     }
-  },[submitText])
+  }, [submitText]);
 
   return (
     <div className="chat-button-container">
@@ -45,17 +85,17 @@ const ChatButton = ({ chatList, setChatList }) => {
             </div>
             <div className="chatbox-content">
               <ChatBot chatList={chatList} />
-              <div className="text-area">
-                <input
-                  type="text"
-                  value={text}
-                  placeholder="Type your message..."
-                  onChange={(e) => {
-                    setText(e.target.value);
-                  }}
-                />
-                <button onClick={handleSubmit}>➤</button>
-              </div>
+            </div>
+            <div className="text-area">
+              <input
+                type="text"
+                value={text}
+                placeholder="Type your message..."
+                onChange={(e) => {
+                  setText(e.target.value);
+                }}
+              />
+              <button onClick={handleSubmit}>➤</button>
             </div>
           </div>
         </div>

@@ -62,11 +62,14 @@
     padding: 10px;
   }
   
-  .chatbox-content input[type="text"] {
-    width: 90%;
+  .text-area input[type="text"] {
+    width: 46%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    position: absolute;
+    bottom: 25%;
+    z-index: 2;
   }
   .text-area{
     display: flex;
@@ -76,5 +79,9 @@
     background: transparent;
     font-size: 1.5rem;
     font-weight: 600;
+    z-index: 5;
+    position: absolute;
+    right: 25%;
+    bottom: 25%;
     color: var(--primary-color);
   }
